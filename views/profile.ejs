@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content=
+			"width=device-width, initial-scale=1.0">
+	<title>Document</title>
+    <style>
+        body{
+                    position:absolute;
+                    padding-top:100px;
+                    padding-left:200px;
+                    font-family:'Times New Roman', Times, serif;
+                    background-image: url("../img/profilebg.jpg");
+                    background-repeat:no-repeat;
+                    background-size:cover;
+                }
+        h3{
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">User Profile</h1>
+    <div style="height:150px;width:450px;background-color: aliceblue;border-style: solid;">
+        <br>
+                <p style="display:inline"><h3>*  User Name :</h3><%= userDetails.userName %> </p>
+                <p style="display:inline"><h3>*  Email Id : </h3><%= userDetails.email %> </p>
+                <p style="display:inline"><h3>*  Password : </h3><%= userDetails.password %> </p>
+                <!--<p style="display:inline"><h3>*  ideas  : </h3><%= userDetails.ideas %></p> -->          
+    </div>
+    <br>
+    <div style="height:600px;width:500px;overflow:auto; display:inherit; position:absolute;left: 400px;">
+        <h1 style="text-align: center;">User Idea's</h1>
+        <div>
+            <%userDetails.port.forEach(idea=>{%>
+                <div style="height:300px;width:450px;border: 2px; border-color: black;background-color: aliceblue; border-style: solid;">
+                    <p style="display:inline"><h2>Idea : </h3><%= idea.idea %> </p>
+                    <p style="display:inline"><h3>Demo : </h3><%= idea.demoVideoLink %> </p>
+                    <p style="display:inline"><h3>Ask  : </h3><%= idea.ask %> 
+                    <h3>Equity :</h3> <%= idea.equity %> 
+                    <h3>Evaluation :</h3> <%= idea.evaluation %></p>
+                    <p>for more details contact ..</p> 
+                    <p> <h3 style="display:inline">Mobile Number :</h3> <%= idea.mobileNumber%> <h3 style="display:inline">Email ID :</h3> <%= idea.email %></p>
+                </div> 
+                <br>
+            <%})%>
+        </div>
+    </div>
+    <a href="http://localhost:8000/find" style="left:600px ; top:600px ">Back</a><br><br> 
+    <a href="http://localhost:8000/" style="left:600px ; top:600px ">logout</a>   
+</body>
+</html>

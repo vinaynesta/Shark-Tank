@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content=
+			"width=device-width, initial-scale=1.0">
+	<title>Document</title>
+    <style>
+        body{
+                    position:absolute;
+                    padding-top:100px;
+                    padding-left:200px;
+                    font-family:'Times New Roman', Times, serif;
+                    background-image: url("../img/investors.jpeg");
+                    background-repeat:no-repeat;
+                    background-size:cover;
+                }
+        h1 {
+            background-color: black;
+        }
+        p {
+            padding-left: 10px;
+            color: white;
+        }
+        h3{
+            display: inline;
+        }
+    </style>
+</head>
+<body> 
+    <h1 style="text-align: center; color: white;">Investors Portal</h1>
+    <div style="height:600px;width:500px;overflow:auto; display:inherit;display: inline-block; position:absolute;left: 400px;">
+        <div style=" display: inline-block">
+                <%portfolioList.forEach(ports=>{%>
+            <div style="border: 2px;background-color: aliceblue; border-color: black; border-radius: 25px; border-style: solid;">
+                <p style="display:inline"><h2>Idea : </h3><%= ports.idea %> </p>
+                <p style="display:inline"><h3>Demo : </h3><%= ports.demoVideoLink %> </p>
+                <p style="display:inline"><h3>Ask  : </h3><%= ports.ask %> 
+                <h3>Equity :</h3> <%= ports.equity %> 
+                <h3>Evaluation :</h3> <%= ports.evaluation %></p>
+                <p>for more details contact ..</p> 
+                <p> <h3 style="display:inline">Mobile Number :</h3> <%= ports.mobileNumber%> <h3 style="display:inline">Email ID :</h3> <%= ports.email %></p>
+            </div> 
+            <br>   
+        <%})%>
+        </div>
+    </div>
+    <div style="display: inline-block;top :300px left 400px">
+        <a href="http://localhost:8000/profile"><h3 style="color: red;">User's Profile</h3></a><br><br>
+        <a href="http://localhost:8000/portfolio"><h3 style="color: red;">Add your Idea</h3></a><br><br><br><br>
+        <a href="http://localhost:8000/"><h3 style="color: red;">Log Out</h3></a>
+    </div>
+</body>
+</html>

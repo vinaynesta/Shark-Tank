@@ -1,0 +1,40 @@
+body{
+height: 100%;
+margin: 0;
+}
+div{
+position:absolute;
+left:200px;
+top:20px;
+width: 400px;
+border:10px solid rgb(255,255,255);
+padding: 30px;
+margin: 20px;
+ } .container{
+ width:100%;
+border:3px solid black;
+padding:15px;
+ }
+.signup{
+ font-family:Georgia, 'Times New Roman', Times, serif;
+ position:absolute;
+ left:300px;
+ top:10px;
+ width: 400px;
+ border:10px solid rgb(255,255,255);
+ padding: 50px;
+ margin: 20px;
+ }input[type=text], input[type=password], input[type=tel], input[type=email] {
+width:90%;
+padding: 15px;
+margin: 5px 0px 22px 0px;
+display: inline-block;
+border: none;
+background: #f1f1f1;
+}
+button{
+background-color:rgb(77, 132, 235);
+padding:10px;
+border-style: outset;
+position:relative;
+}
