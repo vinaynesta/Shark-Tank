@@ -28,6 +28,7 @@ equity:Number,
 evaluation:Number,
 mobileNumber:Number,
 email:String,
+interestedList:[String]
 };
 
 const usersSchema = {
@@ -101,11 +102,29 @@ app.get("/profile",function(req,res){
 
 
 
-app.get("/find",function(req,res){
-    portfolio.find({},function(err,ports){
+app.get("/find", function(req,res){
+        portfolio.find({},function(err,ports){
+        console.log("entered app data");
+        //console.log("ports : ",ports);
         res.render("find",{
             portfolioList :ports
         });
+    });
+});
+
+app.put("/find:id", (req,res)=>{
+    
+    console.log(req.params.id);
+
+    LoginDetails.find({_id: "63ef4f18d150e17c83d9d373"}, function(err,ports){
+        console.log("ports",ports[0].userid);
+        var uid = ports[0].userid;
+        portfolio.findOneAndUpdate(
+            { _id:String(req.params.id), },
+            { $addToSet: { interestedList: uid, }  ,}
+        ).then(()=>{
+            console.log("added successfully");
+        });    
     });
 });
 

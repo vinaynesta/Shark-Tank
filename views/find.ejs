@@ -41,15 +41,37 @@
                 <h3>Evaluation :</h3> <%= ports.evaluation %></p>
                 <p>for more details contact ..</p> 
                 <p> <h3 style="display:inline">Mobile Number :</h3> <%= ports.mobileNumber%> <h3 style="display:inline">Email ID :</h3> <%= ports.email %></p>
+                <div> 
+                    <button  class="interest <%= ports.id%>">Interest</button>
+                </div>
+                <h3>Interest count :</h3> <%= ports.interestedList.length %></p>
             </div> 
             <br>   
         <%})%>
         </div>
     </div>
+    
     <div style="display: inline-block;top :300px left 400px">
         <a href="http://localhost:8000/profile"><h3 style="color: red;">User's Profile</h3></a><br><br>
         <a href="http://localhost:8000/portfolio"><h3 style="color: red;">Add your Idea</h3></a><br><br><br><br>
         <a href="http://localhost:8000/"><h3 style="color: red;">Log Out</h3></a>
     </div>
+    
+    <script>
+        const interestButton = document.querySelectorAll(".interest")
+        
+        console.log(interestButton);
+        interestButton.forEach((button,i)=>{
+            button.addEventListener("click",()=>{
+                const endPoint = button.classList[1]
+                console.log("endPoint",endPoint);
+                fetch('/find'+endPoint,{
+                    method:"PUT"
+                });
+                window.location.reload();
+            });
+        });
+        
+    </script>
 </body>
 </html>
